@@ -1,0 +1,78 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{titlepage}
+
+\RequirePackage[margin=20mm]{geometry}
+\RequirePackage{tikz}
+\RequirePackage{ragged2e}
+\RequirePackage[default]{sourcesanspro}
+\RequirePackage{calc}
+\RequirePackage{ncolor}
+
+% Definitions
+\newcommand{\name}[2]{\def\@name{\Huge#1\ \primary\textbf{#2}\black\normalsize}}
+\newcommand{\studentnumber}[1]{\def\@snum{\LARGE(\primary#1\black)\normalsize}}
+\newcommand{\coursecode}[1]{\def\@code{\Large\textsc{\textbf{#1}}\normalsize}}
+\newcommand{\coursetitle}[1]{\def\@coursetit{#1}}
+\newcommand{\doctitle}[1]{\def\@doctitle{\Large#1}}
+
+% Make the titlepage
+\newcommand{\coverpage}{\begin{titlepage}
+
+        %Write the text down the middle
+        \begin{minipage}{\textwidth}
+            \vspace{10em}
+            \begin{minipage}{\textwidth}\begin{center}\begin{minipage}{\widthof{\@name}}
+                \@name\\
+                \vspace{1em}
+                \hfill\@snum
+                \vspace{10em}
+            \end{minipage}\end{center}\end{minipage}
+            \begin{minipage}{\textwidth}\begin{center}
+                \includegraphics{logo}\\\vspace{0em}
+                \huge University of Queensland\\
+                \LARGE\primary\@code\black -- \@coursetit\\\vspace{2em}
+                \@doctitle
+            \end{center}\end{minipage}
+        \end{minipage}
+
+        % Draw the side boxes
+        \begin{tikzpicture}[remember picture,overlay,shorten >= -10pt]
+            \coordinate (aux1) at ([yshift=-15pt]current page.north east);
+            \coordinate (aux2) at ([yshift=-410pt]current page.north east);
+            \coordinate (aux3) at ([yshift=-4.5cm]current page.north east);
+            \coordinate (aux4) at ([yshift=-150pt]current page.north east);
+
+            \begin{scope}[primary!40,line width=12pt,rounded corners=12pt]
+                \draw
+                    (aux1) -- coordinate (a)
+                    ++(225:5) --
+                    ++(-45:5.1) coordinate (b);
+                \draw[shorten <= -10pt]
+                    (aux3) --
+                    (a) --
+                    (aux1);
+                \draw[opacity=0.6,primary,shorten <= -10pt]
+                    (b) --
+                    ++(225:2.2) --
+                    ++(-45:2.2);
+            \end{scope}
+                \draw[primary,line width=8pt,rounded corners=8pt,shorten <= -10pt]
+                    (aux4) --
+                    ++(225:0.8) --
+                    ++(-45:0.8);
+            \begin{scope}[primary!70,line width=6pt,rounded corners=8pt]
+                \draw[shorten <= -10pt]
+                    (aux2) --
+                    ++(225:3) coordinate[pos=0.45] (c) --
+                    ++(-45:3.1);
+                \draw
+                    (aux2) --
+                    (c) --
+                    ++(135:2.5) --
+                    ++(45:2.5) --
+                    ++(-45:2.5) coordinate[pos=0.3] (d);
+                \draw
+                    (d) -- +(45:1);
+            \end{scope}
+        \end{tikzpicture}
+\end{titlepage}}
