@@ -38,7 +38,7 @@
         \ \vrulefill{0.12em}
         \fi
     \end{minipage}}
-\newcounter{heading}
+\newcounter{subheading}
 \newcommand{\subheading}[1]{
     \addcontentsline{toc}{subsection}{\ifdefined\@secnumber\thesubheading\quad\fi#1}
     \noindent\begin{minipage}{\textwidth}
