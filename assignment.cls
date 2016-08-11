@@ -38,6 +38,20 @@
         \ \vrulefill{0.12em}
         \fi
     \end{minipage}}
+\newcounter{heading}
+\newcommand{\subheading}[1]{
+    \addcontentsline{toc}{subsection}{\ifdefined\@secnumber\thesubheading\quad\fi#1}
+    \noindent\begin{minipage}{\textwidth}
+        \stepcounter{subheading}
+        \noindent\primary\large\bfseries
+        \ifdefined\@secnumber
+        \thesubheading\quad
+        \fi
+        #1
+        %\ifdefined\@headrule
+        %\ \vrulefill{0.12em}
+        %\fi
+    \end{minipage}}
 %\newcommand{\tmpsection}[1]{\section{#1}}
 %\ifdefined\@secnumber
 %\renewcommand{\tmpsection}[1]{\section[#1]{\thesection\qquad#1}}
