@@ -11,6 +11,7 @@
 \RequirePackage{titlesec}
 \RequirePackage{ragged2e}
 \RequirePackage{ncolor}
+\RequirePackage{float}
 
 % Options
 \DeclareOption{number}{\def\@secnumber}
@@ -24,9 +25,9 @@
 \newcommand{\vrulefill}[1]{\leavevmode\leaders\hrule height#1\hfill\kern0pt}
 
 % Section style
+\setcounter{tocdepth}{3}
 \newcounter{heading}
 \newcommand{\heading}[1]{
-    \addcontentsline{toc}{section}{\ifdefined\@secnumber\theheading\quad\fi#1}
     \noindent\begin{minipage}{\textwidth}
         \stepcounter{heading}
         \noindent\primary\Large\bfseries
@@ -37,6 +38,7 @@
         \ifdefined\@headrule
         \ \vrulefill{0.12em}
         \fi
+        \addcontentsline{toc}{section}{\ifdefined\@secnumber\theheading\quad\fi#1}
     \end{minipage}}
 \newcounter{subheading}
 \newcommand{\subheading}[1]{
