@@ -9,10 +9,13 @@
 \RequirePackage{ncolor}
 
 % Definitions
-\newcommand{\name}[2]{\def\@name{\Huge#1\ \primary\textbf{#2}\black\normalsize}}
-\newcommand{\studentnumber}[1]{\def\@snum{\LARGE(\primary#1\black)\normalsize}}
-\newcommand{\coursecode}[1]{\def\@code{\Large\textsc{\textbf{#1}}\normalsize}}
-\newcommand{\coursetitle}[1]{\def\@coursetit{#1}}
+\newcommand{\name}[2]{\def\username{#1\ \primary\textbf{#2}\black}}
+\newcommand{\displayname}{\Huge\username\normalsize}
+\newcommand{\studentnumber}[1]{\def\snum{\primary#1\black}}
+\newcommand{\displaynumber}{\LARGE(\snum)\normalsize}
+\newcommand{\coursecode}[1]{\def\code{\textsc{\textbf{#1}}}}
+\newcommand{\displaycode}{\Large\code\normalsize}
+\newcommand{\coursetitle}[1]{\def\displaycourse{#1}}
 \newcommand{\doctitle}[1]{\def\@doctitle{\Large#1}}
 
 % Make the titlepage
@@ -21,16 +24,16 @@
         %Write the text down the middle
         \begin{minipage}{\textwidth}
             \vspace{10em}
-            \begin{minipage}{\textwidth}\begin{center}\begin{minipage}{\widthof{\@name}}
-                \@name\\
+            \begin{minipage}{\textwidth}\begin{center}\begin{minipage}{\widthof{\displayname}}
+                \displayname\\
                 \vspace{1em}
-                \hfill\@snum
+                \hfill\displaynumber
                 \vspace{10em}
             \end{minipage}\end{center}\end{minipage}
             \begin{minipage}{\textwidth}\begin{center}
                 \includegraphics{logo}\\\vspace{0em}
                 \huge University of Queensland\\
-                \LARGE\primary\@code\black -- \@coursetit\\\vspace{2em}
+                \LARGE\primary\displaycode\black -- \displaycourse\\\vspace{2em}
                 \@doctitle
             \end{center}\end{minipage}
         \end{minipage}

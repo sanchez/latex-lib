@@ -12,6 +12,8 @@
 \RequirePackage{ragged2e}
 \RequirePackage{ncolor}
 \RequirePackage{float}
+\RequirePackage{fancyhdr}
+\RequirePackage{titlepage}
 
 % Options
 \DeclareOption{number}{\def\@secnumber}
@@ -67,3 +69,15 @@
 %\titleformat{\section}[runin]
 %    {\Large\bfseries}{\thesection}{1em}{}
 %\newcommand{\heading}[1]{\color{primary}\section{#1}\vrulefill{0.12em}\color{black}\newline}
+
+\newcommand{\headfoot}{
+    \pagestyle{fancy}\fancyhf{}
+    \lhead{}\chead{}\rhead{}
+    \lfoot{\code}\cfoot{\username (\snum)}\rfoot{Page \thepage}
+    \renewcommand{\headrulewidth}{0.15em}
+    \renewcommand{\footrulewidth}{0.15em}
+    \renewcommand{\headrule}{\hbox to\headwidth{\black\leaders\hrule height\headrulewidth\hfill}}
+    \renewcommand{\footrule}{\hbox to\headwidth{\black\leaders\hrule height\footrulewidth\hfill}}
+    \pagenumbering{arabic}
+}
+
