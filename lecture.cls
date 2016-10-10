@@ -52,6 +52,9 @@
 \newcommand{\heading}[1]{
     \noindent\begin{minipage}[t]{\linewidth}\noindent\Large\primary\textbf{#1}\hspace{1em}\vrulefill{0.9pt}\normalsize\black\end{minipage}
 }
+\newcommand{\subheading}[1]{
+    \noindent\begin{minipage}[t]{\linewidth}\noindent\large\textbf{#1}\hspace{1em}\vrulefill{0.9pt}\normalsize\end{minipage}
+}
 
 % Notes box
 \newcommand{\@marginwidth}{1em}
