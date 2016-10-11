@@ -62,8 +62,8 @@
 \newcommand{\@cornersize}{10pt}
 \newmdenv[innerleftmargin=\@marginwidth,innertopmargin=\@marginwidth,innerbottommargin=\@marginwidth,innerrightmargin=\@marginwidth,linewidth=\@linewidth,outerlinewidth=0pt,innerlinewidth=0pt,roundcorner=\@cornersize,linecolor=primary]{notebox}
 \newenvironment{note}[1]
-    {\noindent\begin{minipage}[t]{\linewidth}\begin{notebox}\header{#1}\begin{text}}
-    {\end{text}\end{notebox}\end{minipage}}
+    {\noindent\begin{minipage}[t]{\linewidth}\begin{notebox}\header{#1}}
+    {\end{notebox}\end{minipage}}
 
 % Environments
 \newenvironment{text}
