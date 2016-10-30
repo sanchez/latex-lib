@@ -14,6 +14,7 @@
 \RequirePackage{float}
 \RequirePackage{fancyhdr}
 \RequirePackage{titlepage}
+\RequirePackage{hyperref}
 
 % Options
 \DeclareOption{number}{\def\@secnumber}
@@ -28,8 +29,11 @@
 
 % Section style
 \setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
 \newcounter{heading}
 \newcommand{\heading}[1]{
+    \phantomsection
+    \addcontentsline{toc}{section}{\ifdefined\@secnumber\theheading\quad\fi#1}
     \noindent\begin{minipage}{\textwidth}
         \stepcounter{heading}
         \noindent\primary\Large\bfseries
@@ -40,10 +44,10 @@
         \ifdefined\@headrule
         \ \vrulefill{0.12em}
         \fi
-        \addcontentsline{toc}{section}{\ifdefined\@secnumber\theheading\quad\fi#1}
     \end{minipage}}
 \newcounter{subheading}
 \newcommand{\subheading}[1]{
+    \phantomsection
     \addcontentsline{toc}{subsection}{\ifdefined\@secnumber\thesubheading\quad\fi#1}
     \noindent\begin{minipage}{\textwidth}
         \stepcounter{subheading}
