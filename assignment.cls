@@ -26,6 +26,7 @@
 
 % Helper Commands
 \newcommand{\vrulefill}[1]{\leavevmode\leaders\hrule height#1\hfill\kern0pt}
+\newcommand{\firstletter}[1]{\primary#1\black}
 
 % Section style
 \setcounter{tocdepth}{3}
@@ -59,6 +60,12 @@
         %\ifdefined\@headrule
         %\ \vrulefill{0.12em}
         %\fi
+    \end{minipage}}
+\newcommand{\subsubheading}[1]{
+    \phantomsection
+    \addcontentsline{toc}{subsubsection}{#1}
+    \indent\begin{minipage}{\textwidth}
+        \indent\textbf{\large\firstletter#1}
     \end{minipage}}
 %\newcommand{\tmpsection}[1]{\section{#1}}
 %\ifdefined\@secnumber
