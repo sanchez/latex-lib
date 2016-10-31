@@ -1,4 +1,4 @@
-\LoadClass{article}
+\LoadClass[11pt]{article}
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{assignment}
@@ -64,8 +64,8 @@
 \newcommand{\subsubheading}[1]{
     \phantomsection
     \addcontentsline{toc}{subsubsection}{#1}
-    \indent\begin{minipage}{\textwidth}
-        \indent\textbf{\large\firstletter#1}
+    \noindent\begin{minipage}{\textwidth}
+        \noindent\hspace{1em}\textbf{\large\firstletter#1}
     \end{minipage}}
 %\newcommand{\tmpsection}[1]{\section{#1}}
 %\ifdefined\@secnumber
