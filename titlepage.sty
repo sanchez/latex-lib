@@ -7,6 +7,7 @@
 \RequirePackage[default]{sourcesanspro}
 \RequirePackage{calc}
 \RequirePackage{ncolor}
+\RequirePackage{etoolbox}
 
 % Definitions
 \newcommand{\name}[2]{\def\username{#1\ \primary\textbf{#2}\black}}
@@ -18,18 +19,35 @@
 \newcommand{\coursetitle}[1]{\def\displaycourse{#1}}
 \newcommand{\doctitle}[1]{\def\@doctitle{\Large#1}}
 
+\newcounter{user}
+\newcommand{\adduser}[3]{\stepcounter{user}
+    \csdef{firstuser\theuser}{#1}
+    \csdef{seconduser\theuser}{#2}
+    \csdef{numuser\theuser}{#3}}
+\newcommand{\getuser}[1]{
+    \csuse{firstuser#1}\ (\primary\csuse{numuser#1}\black)\ \primary\textbf{\csuse{seconduser#1}}\black
+}
+
 % Make the titlepage
 \newcommand{\coverpage}{\begin{titlepage}
 
         %Write the text down the middle
+        \vfill
         \begin{minipage}{\textwidth}
-            \vspace{10em}
             \begin{minipage}{\textwidth}\begin{center}\begin{minipage}{\widthof{\displayname}}
                 \displayname\\
                 \vspace{1em}
-                \hfill\displaynumber
-                \vspace{10em}
-            \end{minipage}\end{center}\end{minipage}
+                \hfill\displaynumber\\
+            \end{minipage}
+
+            \Large\getuser{1}\\
+            \Large\getuser{2}\\
+            \Large\getuser{3}\\
+            \Large\getuser{4}\\
+
+            \end{center}
+            \vspace{10em}
+            \end{minipage}
             \begin{minipage}{\textwidth}\begin{center}
                 \includegraphics{logo}\\\vspace{0em}
                 \huge University of Queensland\\
@@ -37,6 +55,7 @@
                 \@doctitle
             \end{center}\end{minipage}
         \end{minipage}
+        \vfill
 
         % Draw the side boxes
         \begin{tikzpicture}[remember picture,overlay,shorten >= -10pt]
