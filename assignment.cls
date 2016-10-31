@@ -9,7 +9,7 @@
 \RequirePackage[default]{sourcesanspro}
 \RequirePackage[framemethod=TikZ,xcolor]{mdframed}
 \RequirePackage{titlesec}
-\RequirePackage{ragged2e}
+\RequirePackage[document]{ragged2e}
 \RequirePackage{ncolor}
 \RequirePackage{float}
 \RequirePackage{fancyhdr}
