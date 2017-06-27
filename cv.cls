@@ -34,6 +34,7 @@
 \newcommand{\phone}[1]{\def\@phone{#1}}
 \newcommand{\email}[1]{\def\@email{#1}}
 \newcommand{\website}[1]{\def\@website{#1}}
+\newcommand{\github}[1]{\def\@github{#1}}
 \newcommand{\genname}{\def\@name{\@firstname\ \primary\textbf{\@lastname}}}
 \newcommand{\details}{
     \genname\noindent
@@ -41,6 +42,7 @@
         \raggedleft\Huge\@name\\
         \black\large Email:\ \primary\textbf{\@email}\\
         \ifthenelse{\isundefined{\@website}}{}{\black\large Website:\ \primary\textbf{\@website}\\}
+        \ifthenelse{\isundefined{\@github}}{}{\black\large GitHub:\ \primary\textbf{\@github}\\}
         \black\large Phone:\ \primary\textbf{\@phone}\\
         \vspace{1.5em}
     \end{minipage}
